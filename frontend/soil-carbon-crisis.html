@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Soil Carbon Crisis - Agric-Empower</title>
+    <link rel="icon" type="image/png" href="images/Logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .crisis-hero {
+            background: linear-gradient(135deg, rgba(5,150,105,0.95) 0%, rgba(245,158,11,0.9) 100%),
+                        url('./images/soil-check.jpg') center/cover no-repeat;
+            color: white;
+            padding: 140px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .crisis-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+        
+        .crisis-hero .crisis-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .crisis-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+        
+        .crisis-hero p {
+            font-size: 1.3rem;
+            font-weight: 400;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .crisis-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .crisis-section {
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .crisis-section:nth-child(even) {
+            background: #f8fffe;
+        }
+        
+        .crisis-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #059669;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .crisis-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #059669, #F59E0B);
+            border-radius: 2px;
+        }
+        
+        .problem-statement {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: none;
+            border-left: 6px solid #F59E0B;
+            padding: 40px;
+            margin: 40px 0;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(245,158,11,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .problem-statement::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100px;
+            height: 100px;
+            background: rgba(245,158,11,0.1);
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .problem-statement h3 {
+            color: #92400e;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .problem-statement p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #78350f;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .solution-box {
+            background: linear-gradient(135deg, #dcfdf7 0%, #a7f3d0 100%);
+            border: none;
+            border-left: 6px solid #059669;
+            padding: 40px;
+            margin: 40px 0;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(5,150,105,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .solution-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100px;
+            height: 100px;
+            background: rgba(5,150,105,0.1);
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .solution-box h3 {
+            color: #064e3b;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .solution-box p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #065f46;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .impact-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .impact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #059669, #F59E0B);
+        }
+        
+        .impact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+        }
+        
+        .impact-icon {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #059669, #F59E0B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+        }
+        
+        .impact-card h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 15px;
+        }
+        
+        .impact-card p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+        
+        .causes-list {
+            list-style: none;
+            padding: 0;
+            margin: 40px 0;
+        }
+        
+        .causes-list li {
+            background: white;
+            margin: 20px 0;
+            padding: 30px;
+            border-radius: 16px;
+            border-left: 6px solid #F59E0B;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+        
+        .causes-list li:hover {
+            transform: translateX(8px);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+        }
+        
+        .causes-list h4 {
+            color: #059669;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .causes-list h4 i {
+            color: #F59E0B;
+            font-size: 1.5rem;
+        }
+        
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .solution-card {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #059669, #F59E0B);
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 45px rgba(0,0,0,0.12);
+        }
+        
+        .solution-card h4 {
+            color: #059669;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .solution-card h4 i {
+            color: #F59E0B;
+            font-size: 1.6rem;
+        }
+        
+        .solution-card p {
+            color: #4b5563;
+            line-height: 1.7;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%23ffffff" opacity="0.1"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .cta-section h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .btn-white {
+            background: white;
+            color: #059669;
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin: 10px 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255,255,255,0.2);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255,255,255,0.3);
+            color: #047857;
+        }
+        
+        @media (max-width: 768px) {
+            .crisis-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .crisis-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .crisis-section {
+                padding: 60px 0;
+            }
+            
+            .crisis-section h2 {
+                font-size: 2rem;
+            }
+            
+            .impact-grid,
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn-white {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="images/Logo.png" alt="Agric-Empower Logo" class="logo-img">
+                <span class="nav-title">Agric-Empower</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about-us.html">About</a></li>
+                <li><a href="soil-carbon-crisis.html" class="active">The Crisis</a></li>
+                <li><a href="learning.html">Solutions</a></li>
+                <li><a href="signup.html">Join Us</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="crisis-hero">
+        <div class="crisis-content">
+            <h1>Understanding The Soil Carbon Crisis</h1>
+            <p>One of the most urgent environmental challenges of our time - and how we can solve it together</p>
+        </div>
+    </section>
+
+    <!-- What is the Crisis -->
+    <section class="crisis-section">
+        <div class="crisis-content">
+            <h2>What is The Soil Carbon Crisis?</h2>
+            
+            <div class="problem-statement">
+                <h3><i class="fas fa-exclamation-triangle"></i> The Problem Statement</h3>
+                <p><strong>The Soil Carbon Crisis refers to the rapid loss of carbon stored in soils due to industrial agriculture, deforestation, poor land management, and climate change. As soil loses carbon, it becomes less fertile, releases CO₂ into the atmosphere, accelerates global warming, and reduces global food security.</strong></p>
+            </div>
+            
+            <p>Healthy soils naturally store more carbon than the atmosphere and all plant life combined. However, over the past century, we've lost 50-70% of the carbon originally stored in agricultural soils worldwide. This massive loss has contributed significantly to climate change while simultaneously degrading the very foundation of our food systems.</p>
+            
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-thermometer-full"></i>
+                    </div>
+                    <h4>Climate Impact</h4>
+                    <p>Soil carbon loss contributes 25% of global CO₂ emissions, accelerating climate change</p>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h4>Food Security</h4>
+                    <p>Degraded soils produce 20-40% less food, threatening global food security</p>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h4>Water Crisis</h4>
+                    <p>Carbon-depleted soils hold 90% less water, worsening drought conditions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Causes -->
+    <section class="crisis-section">
+        <div class="crisis-content">
+            <h2>What Causes Soil Carbon Loss?</h2>
+            <p>Understanding the root causes helps us develop effective solutions:</p>
+            
+            <ul class="causes-list">
+                <li>
+                    <h4><i class="fas fa-tractor"></i> Industrial Agriculture</h4>
+                    <p>Intensive tillage, monocultures, and heavy chemical use destroy soil structure and kill beneficial microorganisms that store carbon.</p>
+                </li>
+                
+                <li>
+                    <h4><i class="fas fa-tree"></i> Deforestation</h4>
+                    <p>Clearing forests for agriculture removes the root systems and organic matter that naturally build soil carbon.</p>
+                </li>
+                
+                <li>
+                    <h4><i class="fas fa-fire"></i> Poor Land Management</h4>
+                    <p>Overgrazing, burning crop residues, and leaving soil bare expose carbon to oxidation and erosion.</p>
+                </li>
+                
+                <li>
+                    <h4><i class="fas fa-globe-americas"></i> Climate Change</h4>
+                    <p>Rising temperatures and changing precipitation patterns accelerate the breakdown of soil organic matter.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Solutions -->
+    <section class="crisis-section">
+        <div class="crisis-content">
+            <h2>Our Regenerative Agriculture Solution</h2>
+            
+            <div class="solution-box">
+                <h3><i class="fas fa-lightbulb"></i> The Agric-Empower Approach</h3>
+                <p><strong>To address the Soil Carbon Crisis, we implement a regenerative agriculture strategy that rebuilds soil carbon through composting, cover cropping, agroforestry, and no-till farming, supported by community education and monitoring. This approach not only captures atmospheric carbon but also improves soil fertility, drought resilience, and long-term food security.</strong></p>
+            </div>
+            
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <h4><i class="fas fa-recycle"></i> Composting & Organic Matter</h4>
+                    <p>Teaching farmers to create and apply compost, biochar, and organic amendments that directly add carbon to soil while improving fertility and water retention.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <h4><i class="fas fa-leaf"></i> Cover Cropping</h4>
+                    <p>Planting cover crops that protect soil, add organic matter, and keep living roots in the ground year-round to feed soil microorganisms.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <h4><i class="fas fa-tree"></i> Agroforestry</h4>
+                    <p>Integrating trees and shrubs into farming systems to maximize carbon storage both above and below ground while providing additional benefits.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <h4><i class="fas fa-seedling"></i> No-Till Farming</h4>
+                    <p>Eliminating or reducing tillage to preserve soil structure, protect carbon stores, and maintain the fungal networks that sequester carbon.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <h4><i class="fas fa-sync-alt"></i> Crop Rotation</h4>
+                    <p>Diversifying crops to improve soil biology, break pest cycles, and optimize carbon cycling through different root systems and residues.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <h4><i class="fas fa-users"></i> Community Monitoring</h4>
+                    <p>Training farmers to measure and track soil carbon improvements, creating accountability and motivation for continued regenerative practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why This Matters -->
+    <section class="crisis-section">
+        <div class="crisis-content">
+            <h2>Why This Crisis Matters to Rhino Refugee Camp</h2>
+            <p>The soil carbon crisis is particularly urgent in refugee settlements where:</p>
+            
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h4>Land Degradation</h4>
+                    <p>Intensive use of limited land has depleted soil carbon, reducing agricultural productivity and food security.</p>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-cloud-rain"></i>
+                    </div>
+                    <h4>Climate Vulnerability</h4>
+                    <p>Degraded soils make communities more vulnerable to droughts, floods, and extreme weather events.</p>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h4>Health & Nutrition</h4>
+                    <p>Carbon-depleted soils produce less nutritious food, affecting community health and child development.</p>
+                </div>
+            </div>
+            
+            <p>By addressing the soil carbon crisis, we're not just fighting climate change - we're building resilience, improving nutrition, and creating sustainable livelihoods for refugee families.</p>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="crisis-content">
+            <h2>Join the Fight Against The Soil Carbon Crisis</h2>
+            <p>Every farmer who adopts regenerative practices becomes a climate champion. Together, we can restore our soils, sequester carbon, and build a sustainable future.</p>
+            
+            <a href="signup.html" class="btn-white">Start Your Climate Journey</a>
+            <a href="learning.html" class="btn-white">Learn Regenerative Practices</a>
+            <a href="about-us.html" class="btn-white">Meet Our Team</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Agric-Empower</h3>
+                    <p>Combating the soil carbon crisis through regenerative agriculture and community-driven climate action in Rhino Refugee Camp.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Climate Solutions</h3>
+                    <ul>
+                        <li><a href="soil-carbon-crisis.html">The Soil Carbon Crisis</a></li>
+                        <li><a href="learning.html">Regenerative Practices</a></li>
+                        <li><a href="soil-monitoring.html">Carbon Monitoring</a></li>
+                        <li><a href="about-us.html">Our Impact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Get Involved</h3>
+                    <ul>
+                        <li><a href="signup.html">Become a Climate Champion</a></li>
+                        <li><a href="learning.html">Learn Soil Restoration</a></li>
+                        <li><a href="index.html#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Agric-Empower. All rights reserved. | Combating the soil carbon crisis through regenerative agriculture</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                    
+                    if (navMenu.classList.contains('active')) {
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        document.body.style.overflow = '';
+                    }
+                });
+                
+                // Close menu when clicking on links
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

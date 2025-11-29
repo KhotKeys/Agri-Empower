@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Agric-Empower</title>
+    <link rel="icon" type="image/png" href="images/Logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(56,142,60,0.7) 0%, rgba(239,108,0,0.45) 100%),
+                        url('./images/photorealistic-african-people-harvesting-diverse-vegetables-grains_23-2151487495.avif') center/cover no-repeat;
+            padding: 20px;
+        }
+
+        .auth-bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.32);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .auth-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .auth-logo {
+            margin-bottom: 2rem;
+        }
+
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #388E3C;
+        }
+
+        .form-group i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+
+        .auth-btn {
+            background: #388E3C;
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .auth-btn:hover {
+            background: #2E7D32;
+        }
+
+        .auth-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .auth-links {
+            margin-top: 2rem;
+        }
+
+        .auth-links a {
+            color: #388E3C;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .auth-links a:hover {
+            color: #2E7D32;
+            text-decoration: none;
+        }
+
+        .back-home {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .message {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            display: none;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .quick-access {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+        }
+
+        .quick-access h4 {
+            margin: 0 0 1rem 0;
+            color: #388E3C;
+        }
+
+        .quick-access p {
+            margin: 0 0 1rem 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .dashboard-link {
+            display: inline-block;
+            background: #388E3C;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            margin-right: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .dashboard-link:hover {
+            background: #2E7D32;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-home">
+        <i class="fas fa-arrow-left"></i>
+        Back to Home
+    </a>
+
+    <div class="auth-container">
+        <div class="auth-bg-overlay"></div>
+        <div class="auth-card">
+            <div class="auth-logo">
+                <img src="images/Logo.png" alt="Agric-Empower Logo" style="width: 60px; height: 60px;">
+                <h2>Agric-Empower</h2>
+                <p>Become a Climate Champion</p>
+            </div>
+
+            <div class="quick-access">
+                <h4><i class="fas fa-leaf"></i> Join the Fight Against Soil Carbon Crisis</h4>
+                <p>Start your regenerative agriculture journey immediately - no registration required:</p>
+                <div style="margin-top: 15px;">
+                    <a href="user-dashboard.html" class="dashboard-link">
+                        <i class="fas fa-seedling"></i> Carbon Monitoring
+                    </a>
+                    <a href="learning.html" class="dashboard-link">
+                        <i class="fas fa-recycle"></i> Regenerative Practices
+                    </a>
+                    <a href="soil-carbon-crisis.html" class="dashboard-link">
+                        <i class="fas fa-globe-americas"></i> Learn About The Crisis
+                    </a>
+                </div>
+            </div>
+
+            <div class="message error-message" id="errorMessage"></div>
+            <div class="message success-message" id="successMessage"></div>
+
+            <form class="auth-form" id="signupForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" id="firstName" placeholder="First Name (Optional)">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="lastName" placeholder="Last Name (Optional)">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Email Address (Optional)">
+                    <i class="fas fa-envelope"></i>
+                </div>
+
+                <div class="form-group">
+                    <input type="tel" id="phone" placeholder="Phone Number (Optional)">
+                    <i class="fas fa-phone"></i>
+                </div>
+
+                <div class="form-group">
+                    <select id="location">
+                        <option value="">Select Location (Optional)</option>
+                        <option value="rhino">Rhino Refugee Camp</option>
+                        <option value="other">Other Location</option>
+                    </select>
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+
+                <div class="form-group">
+                    <select id="role">
+                        <option value="">Select your role (Optional)</option>
+                        <option value="farmer">Farmer</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                    <i class="fas fa-user-tag"></i>
+                </div>
+
+                <button type="submit" class="auth-btn" id="submitBtn">Become a Climate Champion (Optional)</button>
+            </form>
+
+            <div class="auth-links">
+                <p>Want to login instead? <a href="login.html">Login here</a></p>
+                <p>Learn about <a href="soil-carbon-crisis.html">The Soil Carbon Crisis</a></p>
+                <p>Or explore <a href="learning.html">regenerative agriculture solutions</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const signupForm = document.getElementById('signupForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const errorMessage = document.getElementById('errorMessage');
+            const successMessage = document.getElementById('successMessage');
+
+            // Show success message
+            function showSuccess(message) {
+                successMessage.textContent = message;
+                successMessage.style.display = 'block';
+                errorMessage.style.display = 'none';
+            }
+
+            // Show error message
+            function showError(message) {
+                errorMessage.textContent = message;
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+            }
+
+            // Hide messages
+            function hideMessages() {
+                errorMessage.style.display = 'none';
+                successMessage.style.display = 'none';
+            }
+
+            // Handle form submission
+            signupForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                hideMessages();
+
+                // Get form data
+                const firstName = document.getElementById('firstName').value.trim();
+                const lastName = document.getElementById('lastName').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const location = document.getElementById('location').value;
+                const role = document.getElementById('role').value;
+
+                // Update button state
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Joining Community...';
+                submitBtn.disabled = true;
+
+                // Simulate registration process
+                setTimeout(() => {
+                    // Create user profile
+                    const userProfile = {
+                        firstName: firstName || 'Community',
+                        lastName: lastName || 'Member',
+                        fullName: `${firstName || 'Community'} ${lastName || 'Member'}`,
+                        email: email || 'member@agric-empower.org',
+                        phone: phone || '+256 774 330 491',
+                        location: location || 'rhino',
+                        role: role || 'farmer',
+                        isActive: true,
+                        createdAt: new Date().toISOString(),
+                        profilePicUrl: './images/africa_numbers_cover.jpg'
+                    };
+
+                    // Store in localStorage
+                    localStorage.setItem('sf_user', JSON.stringify(userProfile));
+
+                    // Success message
+                    showSuccess('Welcome, Climate Champion! Redirecting to your carbon monitoring dashboard...');
+                    
+                    // Redirect based on role
+                    setTimeout(() => {
+                        if (userProfile.role === 'admin') {
+                            window.location.href = 'admin-dashboard.html';
+                        } else {
+                            window.location.href = 'user-dashboard.html';
+                        }
+                    }, 2000);
+
+                    // Reset button state
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }, 1000);
+            });
+
+            console.log('✅ Signup page loaded successfully - No authentication required');
+        });
+    </script>
+</body>
+</html>

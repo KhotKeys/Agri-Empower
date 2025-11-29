@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Agric-Empower</title>
+    <link rel="icon" type="image/png" href="images/Logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(56,142,60,0.7) 0%, rgba(239,108,0,0.45) 100%),
+                        url('./images/photorealistic-african-people-harvesting-diverse-vegetables-grains_23-2151487495.avif') center/cover no-repeat;
+            padding: 20px;
+        }
+
+        .auth-bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.32);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .auth-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .auth-logo {
+            margin-bottom: 2rem;
+        }
+
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #388E3C;
+        }
+
+        .form-group i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+
+        .auth-btn {
+            background: #388E3C;
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .auth-btn:hover {
+            background: #2E7D32;
+        }
+
+        .auth-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .auth-links {
+            margin-top: 2rem;
+        }
+
+        .auth-links a {
+            color: #388E3C;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .auth-links a:hover {
+            color: #2E7D32;
+            text-decoration: none;
+        }
+
+        .back-home {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .message {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            display: none;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .info-message {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+
+        .dashboard-link {
+            display: inline-block;
+            background: #388E3C;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            margin-right: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .dashboard-link:hover {
+            background: #2E7D32;
+            color: white;
+        }
+
+        .quick-access {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+        }
+
+        .quick-access h4 {
+            margin: 0 0 1rem 0;
+            color: #388E3C;
+        }
+
+        .quick-access p {
+            margin: 0 0 1rem 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-home">
+        <i class="fas fa-arrow-left"></i>
+        Back to Home
+    </a>
+
+    <div class="auth-container">
+        <div class="auth-bg-overlay"></div>
+        <div class="auth-card">
+            <div class="auth-logo">
+                <img src="images/Logo.png" alt="Agric-Empower Logo" style="width: 60px; height: 60px;">
+                <h2>Agric-Empower</h2>
+                <p>Welcome to your farming dashboard</p>
+            </div>
+
+            <div class="message error-message" id="errorMessage"></div>
+            <div class="message success-message" id="successMessage"></div>
+
+            <div class="quick-access">
+                <h4><i class="fas fa-rocket"></i> Quick Access</h4>
+                <p>No login required! Access your dashboard directly:</p>
+                <div style="margin-top: 15px;">
+                    <a href="user-dashboard.html" class="dashboard-link">
+                        <i class="fas fa-tachometer-alt"></i> Farmer Dashboard
+                    </a>
+                    <a href="admin-dashboard.html" class="dashboard-link">
+                        <i class="fas fa-cog"></i> Admin Dashboard
+                    </a>
+                </div>
+            </div>
+
+            <form class="auth-form" id="loginForm" style="margin-top: 2rem;">
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Email Address (Optional)" >
+                    <i class="fas fa-envelope"></i>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Password (Optional)" >
+                    <i class="fas fa-lock"></i>
+                </div>
+
+                <button type="submit" class="auth-btn" id="submitBtn">Login (Optional)</button>
+            </form>
+
+            <div class="auth-links">
+                <p>New to farming? <a href="signup.html">Join our community</a></p>
+                <p>Or explore our <a href="learning.html">learning resources</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('loginForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const errorMessage = document.getElementById('errorMessage');
+            const successMessage = document.getElementById('successMessage');
+
+            // Show success message
+            function showSuccess(message) {
+                successMessage.textContent = message;
+                successMessage.style.display = 'block';
+                errorMessage.style.display = 'none';
+            }
+
+            // Show error message
+            function showError(message) {
+                errorMessage.textContent = message;
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+            }
+
+            // Hide messages
+            function hideMessages() {
+                errorMessage.style.display = 'none';
+                successMessage.style.display = 'none';
+            }
+
+            // Handle form submission
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                hideMessages();
+
+                const email = document.getElementById('email').value.trim();
+                const password = document.getElementById('password').value;
+
+                // Update button state
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Logging in...';
+                submitBtn.disabled = true;
+
+                // Simulate login process
+                setTimeout(() => {
+                    // Store basic user info in localStorage
+                    const userData = {
+                        email: email || 'guest@agric-empower.org',
+                        fullName: 'Farmer User',
+                        role: email && email.includes('admin') ? 'admin' : 'farmer',
+                        loginTime: new Date().toISOString()
+                    };
+                    
+                    localStorage.setItem('sf_user', JSON.stringify(userData));
+
+                    showSuccess('Login successful! Redirecting to dashboard...');
+                    
+                    // Redirect based on role
+                    setTimeout(() => {
+                        if (userData.role === 'admin') {
+                            window.location.href = 'admin-dashboard.html';
+                        } else {
+                            window.location.href = 'user-dashboard.html';
+                        }
+                    }, 1500);
+
+                    // Reset button state
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }, 1000);
+            });
+
+            console.log('✅ Login page loaded successfully - No authentication required');
+        });
+    </script>
+</body>
+</html>
